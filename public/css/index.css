@@ -1,0 +1,795 @@
+body {
+    font-family: 'Rubik', sans-serif;
+    margin: 0;
+}
+
+.hide-desktop {
+    display: none;
+}
+
+.hidden {
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 2s, opacity 2s linear;
+}
+
+
+
+#success-msg {
+    position: absolute;
+    bottom: 5%;
+    right: 5%;
+    background-color: #155a6d;
+    color: white;
+    z-index: 100;
+    padding: 1rem;
+    position: fixed;
+    border-radius: 2rem;
+}
+
+nav ul {
+    list-style: none;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+}
+
+nav ul li {
+    float: left;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: black;
+    transition: 0.2s;
+}
+
+nav ul li a:hover {
+    color: #03A164;
+}
+
+nav #menu {
+    font-size: 1.2rem;
+    cursor: pointer;
+}
+
+.fa-shopping-cart {
+    margin-left: 2rem;
+}
+
+#cart-counter {
+    background-color: #72b964;
+    color: white;
+    border-radius: 50%;
+    width: 1.3rem;
+    display: inline-block;
+    height: 1.3rem;
+    text-align: center;
+    line-height: 1.3rem;
+    font-size: small;
+    transform: translateX(15%);
+}
+
+.container-nav {
+    width: 80%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+nav {
+    padding: 1.3rem 0;
+    display: flex;
+    justify-content: center;
+    font-weight: 400;
+    border-bottom: 1px solid rgba(151, 151, 151, 0.4);
+    position: sticky;
+    top: 0;
+    z-index: 30;
+    background-color: white;
+}
+
+#logo {
+    width: 170px;
+}
+
+#home-link {
+    margin-right: 2rem;
+    border-right: 1px solid black;
+    padding-right: 2rem;
+}
+
+.hero {
+    position: relative;
+    color: white;
+    display: flex;
+    justify-content: center;
+    height: 100%;
+    background-image: url(../images/jumbo.jpg);
+    background-size: cover;
+    background-position: 100%;
+}
+
+.review-container-bg {
+    background-image: url(../images/jumbo.jpg);
+}
+
+.layer {
+    background-color: rgba(0, 0, 0, 0.4);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1
+}
+
+.headers * {
+    margin-top: 0;
+}
+
+.headers h1 {
+    white-space: pre-line;
+    font-size: 2.7rem;
+    text-transform: uppercase;
+    letter-spacing: -0.2rem;
+    margin-bottom: 2rem;
+}
+
+
+.headers p {
+    margin-bottom: 2rem;
+}
+
+.container-hero {
+    width: 80%;
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.headers button {
+    color: white;
+    padding: 0.9rem 1.5rem;
+    background-color: #72b964;
+    border: none;
+    text-transform: uppercase;
+    transition: 0.2s;
+}
+
+.headers button:hover {
+    background-color: #86d876;
+    cursor: pointer;
+}
+
+.headers {
+    position: absolute;
+    z-index: 7;
+}
+
+#scroll-animation {
+    position: absolute;
+    z-index: 20;
+    bottom: 20%;
+    left: 46.833%;
+    text-align: center;
+}
+
+#scroll-animation img {
+    width: 65%;
+    animation: move 1s infinite alternate
+}
+
+@keyframes move {
+    0% {
+        transform: translateY(0px);
+    }
+    100% {
+        transform: translateY(18px)
+    }
+}
+
+.instructions {
+    background-color: #03A164;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.container-instructions {
+    width: 80%;
+    display: flex;
+    justify-content: space-around;
+    position: relative;
+    padding: 12rem 0;
+}
+
+.circle {
+    width: 30px;
+    height: 30px;
+    border: 3px solid white;
+    border-radius: 50%;
+    background-color: #03A164;
+    position: relative;
+}
+
+.container-instructions:before {
+    content: '';
+    position: absolute;
+    left: 12%;
+    right: 12%;
+    padding-bottom: 16px;
+    border-bottom: 1px dashed white;
+}
+
+.steps {
+    display: flex;
+    color: white;
+    flex-direction: column;
+    align-items: center;
+}
+
+.patterns-container {
+    display: flex;
+    justify-content: center;
+}
+
+.patterns {
+    width: 80%;
+    text-align: center;
+}
+
+.patterns h2, .sizes h2, .colors h2, .review-order h2 {
+    font-weight: 400;
+    font-size: 1.8rem;
+    padding: 2.8rem 0;
+}
+
+.patterns figure, figure#sizes {
+    margin-bottom: 5rem;
+    margin-top: 2rem;
+}
+
+.patterns figure img, #sizes img {
+    width: 280px;
+    border: 4px solid black;
+}
+
+.patterns figure figcaption, #sizes figcaption {
+    margin-top: 2.8rem;
+    font-size: 1.3rem;
+}
+
+.patterns figure button, .order-details button {
+    background-color: black;
+    color: white;
+    padding: 0.6rem 1.8rem;
+    font-size: 1rem;
+    border: none;
+    margin-top: 3rem;
+    text-transform: uppercase;
+    transition: .2s;
+}
+
+.patterns figure button:hover, .order-details button:hover {
+    color: black;
+    background-color: white;
+    border: 1px solid black;
+    cursor: pointer;
+}
+
+.designs {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.filling-empty-spaces {
+    width: 280px;
+    height: 0;
+    margin: 0 2.8rem;
+}
+
+.sizes-container {
+    background-color: #03A164;
+    display: flex;
+    justify-content: center;
+}
+
+.sizes h2 {
+    color: white;
+}
+
+.sizes {
+    width: 80%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.size-btn button {
+    background-color: #03A164;
+    color: white;
+    border: 4px solid white;
+    border-radius: 2rem;
+    padding: 0.8rem 1.5rem;
+    margin-right: 1.5rem;
+    margin-bottom: 2.2rem;
+    transition: .2s;
+}
+
+.size-btn button:hover {
+    background-color: white;
+    color: #03A164;
+    border: 4px solid #03A164;
+    cursor: pointer;
+}
+
+.disclaimer {
+    white-space: pre-line;
+    color: white;
+    font-size: 0.8rem;
+    margin-bottom: 4rem;
+}
+
+figure#sizes {
+    color: white;
+    margin-right: 0;
+}
+
+#sizes figcaption {
+    padding: 2rem 0;
+    font-size: 0.8rem;
+}
+
+#sizes img {
+    width: 250px;
+}
+
+.colors {
+    width: 80%;
+    margin: auto;
+    text-align: center;
+    margin-bottom: 7rem;
+}
+
+button.color {
+    background-color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.glide {
+    margin: auto;
+}
+
+button.color {
+    border: none;
+    background-color: none;
+}
+
+.color-suggestions-container {
+    background-color: #F5F4F4;
+    margin-top: 5rem;
+}
+
+.color-suggestions {
+    width: 80%;
+    margin: auto;
+    text-align: center;
+    padding: 0 2rem;
+    box-sizing: border-box;
+}
+
+.color-suggestions h4 {
+    font-weight: 400;
+    padding: 2.5rem 0;
+    ;
+}
+
+.colors-designs {
+    display: flex;
+    justify-content: center;
+}
+
+.colors-designs figure {
+    margin: 0rem 0.3rem 2.4rem;
+}
+
+.colors-designs figcaption {
+    white-space: pre-line;
+    margin-top: 1rem;
+    font-size: 0.9rem;
+}
+
+.colors-designs figure img {
+    width: 80px;
+}
+
+.review-order {
+    width: 80%;
+    text-align: center;
+    margin: auto;
+}
+
+.order {
+    width: 60%;
+    border: 4px solid black;
+    margin: auto;
+    display: flex;
+    justify-content: space-around;
+    position: relative;
+    margin-bottom: 6rem;
+}
+
+.order-img {
+    margin: 2rem 3rem;
+    margin-right: auto;
+}
+
+.order img {
+    width: 280px;
+}
+
+.order-details {
+    margin: 2rem 2rem 2rem 0rem;
+    margin-right: auto;
+    text-align: left;
+}
+
+.order-details #product-name, .order-details #size {
+    margin-top: 2.7rem;
+}
+
+.order-details #price {
+    margin-top: 0;
+    color: red;
+}
+
+.order-details #product-desc {
+    font-size: .8rem;
+}
+
+.order-details #size, .order-details #color {
+    display: inline-block;
+}
+
+.order-details span {
+    margin-left: 1rem;
+    font-size: .8rem;
+    font-weight: bold;
+}
+
+.order-details span:first-child {
+    margin-right: 1rem;
+}
+
+.order-details button {
+    margin-top: 2rem;
+    display: block;
+}
+
+.fa-trash-alt {
+    position: absolute;
+    right: 0;
+    margin: 1rem;
+    font-size: 1.2rem;
+    transition: .2s;
+}
+
+.fa-trash-alt:hover {
+    color: red;
+    cursor: pointer;
+}
+
+footer {
+    background-color: #03A164;
+}
+
+.footer-container {
+    margin: auto;
+    width: 80%;
+    display: flex;
+    justify-content: space-between;
+    padding: 3rem;
+}
+
+.info {
+    color: white;
+    font-size: 0.7rem;
+    white-space: pre-line;
+}
+
+.info .fa-heart, .info .fa-instagram {
+    font-size: 1.3rem;
+}
+
+.info>div {
+    display: flex;
+}
+
+.info div>span {
+    align-self: center;
+    margin-right: 1.5rem;
+}
+
+.social {
+    color: white;
+    display: flex;
+    justify-content: inherit;
+    flex-direction: column;
+}
+
+.social p:first-of-type {
+    text-transform: uppercase;
+}
+
+.social p:last-of-type {
+    font-size: 0.7rem;
+}
+
+.social-icons-cont {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background-color: white;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: .1s;
+}
+
+.social-icons {
+    font-size: 1.5rem;
+    color: #03A164;
+}
+
+.social-icons-cont:hover {
+    background-color: #03A164;
+    border: 2px solid white;
+}
+
+.social-icons-cont:hover .social-icons {
+    color: white;
+}
+
+.social-buttons {
+    display: flex;
+    justify-content: space-between;
+}
+
+@media only screen and (max-width: 1292px) {
+    .order {
+        width: 80%;
+    }
+}
+
+@media only screen and (max-width: 1024px) {
+    html {
+        font-size: 15px;
+    }
+    .headers h1 {
+        letter-spacing: initial;
+        font-size: 2.2rem;
+    }
+    .headers {
+       bottom: 22%;
+    }
+   
+    .hide-desktop {
+        display: block;
+    }
+    .hide-mobile {
+        display: none;
+    }
+
+    .headers button {
+        padding: 0.8rem 2.2rem;
+    }
+    nav ul {
+        position: fixed;
+        width: 40%;
+        top: 0;
+        right: 0;
+        text-align: left;
+        background-color: white;
+        height: 100%;
+        margin-top: 0;
+        padding: 3rem 0 0 0;
+        border-left: 2px solid black;
+    }
+    nav ul li {
+        float: none;
+    }
+    #scroll-animation {
+        left: auto;
+    }
+    nav ul li a {
+        color: black;
+        text-decoration: none;
+        display: block;
+        width: 100%;
+        padding: 1rem 2rem;
+        border-top: 2px solid black;
+    }
+    nav ul li:last-of-type {
+        border-bottom: 2px solid black;
+    }
+    nav ul li a:hover {
+        background-color: #03A164;
+        color: black;
+    }
+    .exit-btn {
+        color: black;
+        margin-bottom: 1em;
+        margin-top: -1.3rem;
+        text-align: right;
+        padding-right: 1.4rem;
+        cursor: pointer;
+    }
+    .exit-btn .fa-times {
+        font-size: 1.2rem;
+    }
+    .color-suggestions, .patterns, .container-nav, .container-instructions, .sizes, .colors, .review-order, .footer-container, .container-hero {
+        width: 100%
+    }
+    nav {
+        padding: 1.7rem 2rem;
+    }
+    .container-hero {
+        justify-content: center;
+    }
+    .headers {
+        text-align: center;
+        padding-right: 2rem;
+        padding-left: 2rem;
+    }
+    .headers h1 {
+        white-space: normal;
+    }
+    #scroll-animation img {
+        width: 60%;
+    }
+    div.sizes {
+        padding: 0 3rem
+    }
+    #sizes img {
+        width: 200px;
+    }
+    .footer-container {
+        box-sizing: border-box;
+    }
+    .steps {
+        padding: 0 1.5rem;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    html {
+        font-size: smaller;
+    }
+    
+    nav ul {
+        width: 50%;
+    }
+    .headers button, .patterns figure button, .order-details button {
+        font-weight: bold;
+    }
+    .container-instructions {
+        padding: 9rem 0;
+    }
+    .patterns h2, .sizes h2, .colors h2, .review-order h2 {
+        margin: 1rem;
+    }
+    .filling-empty-spaces {
+        display: none;
+    }
+    .designs {
+        flex-direction: column;
+    }
+    .social-icons-cont {
+        width: 50px;
+        height: 50px;
+    }
+    div.order {
+        width: 90%;
+    }
+    div.order img {
+        width: 210px;
+    }
+    .colors-designs figure img {
+        width: 65px;
+    }
+    #success-msg {
+        padding: 1rem 8rem;
+        top: 18%;
+        bottom: initial;
+        right: initial;
+    }
+}
+
+@media only screen and (max-width: 576px) {
+    #success-msg {
+        padding: 1rem 3rem;
+    }
+    div.order img {
+        width: 180px;
+    }
+
+    .headers button {
+        width: 100%;
+    }
+
+    nav ul {
+        width: 60%
+    }
+    .steps {
+        padding: 0 1.3rem;
+    }
+    .order-img {
+        margin: 2rem;
+    }
+    #scroll-animation img {
+        width: 50%;
+    }
+    .sizes {
+        flex-direction: column;
+    }
+    #sizes figcaption {
+        margin-top: 0;
+    }
+    .designs {
+        flex-direction: row;
+    }
+    figure#sizes {
+        margin-left: 0;
+    }
+    .sizes h2 {
+        margin-left: 0;
+    }
+    .sizes .disclaimer {
+        margin-bottom: 0;
+    }
+    .colors-designs figure img {
+        width: 50px;
+    }
+    .footer-container {
+        flex-direction: column;
+    }
+    .social {
+        margin-top: 2rem;
+    }
+    div.social-buttons {
+        justify-content: flex-start;
+        margin: 2rem 0;
+    }
+    .social-buttons>a {
+        margin-right: 4rem;
+    }
+    .info {
+        white-space: normal;
+    }
+}
+
+@media only screen and (max-width: 432px) {
+    #success-msg {
+        padding: 1rem 2rem;
+        font-size: 0.9rem;
+    }
+    .order {
+        flex-direction: column;
+    }
+    .order-details {
+        margin: auto;
+        text-align: center;
+    }
+    .order-details button {
+        display: initial;
+    }
+    .social {
+        text-align: center;
+    }
+    .social-buttons>a {
+        margin: auto;
+    }
+}

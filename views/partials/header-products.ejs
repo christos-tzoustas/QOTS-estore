@@ -1,0 +1,50 @@
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Quiet on The Shirt webshop</title>
+        <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;700&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.1/css/all.min.css">
+        <link rel="stylesheet" href="/css/glide.core.min.css">
+        <link rel="stylesheet" href="/css/glide.theme.min.css">
+        <link rel="stylesheet" href="/css/glide.css">
+        <link rel="stylesheet" type="text/css" href="/css/index.css">
+        <link rel="stylesheet" type="text/css" href="/css/cart.css">
+    
+      
+      
+    </head>
+    <body>
+        <nav>
+            <div class="container-nav">
+                <a>
+                    <img id="logo" src="/images/logo.png" alt="sweeping-petals-logo">
+                </a>
+                <a class="hide-desktop">
+                    <i class="fas fa-bars menu" id="menu"></i>
+                </a>
+                <ul id="navbar" class="nav-links hide-mobile">
+                    <li id="exit" class="hide-desktop exit-btn">
+                        <i class="fas fa-times"></i>
+                    </li>
+                    <li>
+                        <a href="#" id="home-link">Home</a>
+                    </li>
+                    <li>
+                        <a href="#" id="cart-link">
+                            Cart
+                            <span>
+                                <i class="fas fa-shopping-cart"></i>
+                                <% if(cart) { %>
+                                <span id="cart-counter"><%= !cart.products.length ? "0": cart.products.reduce((totalItems, product) => totalItems += product.quantity, 0) %>
+                                </span>
+                                <% }  %>
+                                </i>
+                            </span>
+                        </a>
+                        
+                      
+                    </li>
+                </ul>
+            </div>
+        </nav>

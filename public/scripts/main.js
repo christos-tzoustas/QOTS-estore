@@ -1,0 +1,1 @@
+helpers.showAfterImgLoad('.hero');

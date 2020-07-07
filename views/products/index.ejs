@@ -1,0 +1,231 @@
+<%- include ('../partials/header-products') %>
+
+<main>
+    
+  <section class="hero hidden">
+      <div class="layer"></div>
+      <div class="container-hero">
+          <div class="headers">
+              <h1>
+                  Your Favourite 
+                  TV Sitcoms,
+                  in a T-shirt.
+              </h1>
+              <p>Hand drawn designs in a blueprint pattern.</p>
+             <button>Shop now</button>
+          </div>
+          <span id="scroll-animation">
+              <img src="/images/arrow.png" alt="">
+          </span>
+          <p id="success-msg" class="hidden">
+            
+          </p>
+      </div>
+  </section>
+  <section class="instructions">
+      <div class="container-instructions">
+          <div class="steps">
+              <div class="circle"></div>
+              <p>1. Choose your pattern</p>
+          </div>
+          <div class="steps">
+              <div class="circle"></div>
+              <p>2. Choose your size</p>
+          </div>
+          <div class="steps">
+              <div class="circle"></div>
+              <p>3. Choose your color</p>
+          </div>
+          <div class="steps">
+              <div class="circle"></div>
+              <p>4. Review & Add to Cart</p>
+          </div>
+      </div>
+  </section>
+  <section class="patterns-container">
+      <div class="patterns">
+          <h2> Choose a Pattern</h2>
+          <div class="designs">
+          <% for (let product of products){ %> 
+            <figure>
+                  <img src="data:image/png;base64, <%= product.image %> "/>
+                  <figcaption><%= product.title %></figcaption>
+                  <p id="choose-description"><%= product.description %></p>
+                  <p id="choose-price">€ <%= (product.price).toFixed(2) %></p>
+                  <input hidden value="<%= product.id %>">
+                  <button class="design">Choose design</button>
+              </figure>
+            <% } %>
+              <div class="filling-empty-spaces"></div>
+              <div class="filling-empty-spaces"></div>
+          </diV>
+      </div>
+  </section>
+  <section class="sizes-container">
+      <div class="sizes">
+          <div class="left-column">
+              <h2>Choose a Size</h2>
+              <div class="size-btn">
+                  <button class="size">XXS</button>
+                  <button class="size">XS</button>
+                  <button class="size">S</button>
+                  <button class="size">M</button>
+                  <button class="size">L</button>
+                  <button class="size">XL</button>
+                  <button class="size">XXL</button>
+                  <button class="size">XXXL</button>
+                  <button class="size">XXXXXL</button>
+              </div>
+              <p class="disclaimer">
+                  Please keep in mind sizes are 
+                      UNISEX and EUROPEAN.
+                      All tees are 100% ORGANIC 
+                      RING-SPUN COMBED COTTON.
+                      Check size chart.
+              </p>
+          </div>
+          <div class="right-column">
+              <figure id="sizes">
+                  <figcaption>Click on photo to enlarge</figcaption>
+                  <img src="/images/sizes.png">
+              </figure>
+          </div>
+      </div>
+  </section>
+  <section class="colors-container">
+      <div class="colors">
+          <h2>Choose a Color</h2>
+          <div class="glide">
+              <div class="glide__arrows" data-glide-el="controls">
+                  <button class="glide__arrow glide__arrow--left" data-glide-dir="<">
+                      <i class="fas fa-arrow-circle-left arrows"></i>
+                  </button>
+              </div>
+              <div class="glide__track" data-glide-el="track">
+                  <ul class="glide__slides">
+                      <li class="glide__slide">
+                          <div>
+                            <button class="color"> <img src="/images/colors1.png">     </button>
+                            <label>Red</label>
+                         
+                          </div>
+                      </li>
+                      <li class="glide__slide">
+                          <button class="color"><img src="/images/colors2.png">  </button>
+
+                      </li>
+                      <li class="glide__slide">
+                         <button class="color"> <img src="/images/colors3.png"> </button>
+
+                      </li>
+                      <li class="glide__slide">
+                         <button class="color"> <img src="/images/colors4.png"> </button>
+
+                      </li>
+                      <li class="glide__slide">
+                         <button class="color"> <img src="/images/colors5.png"> </button>
+
+                      </li>
+                      <li class="glide__slide">
+                         <button class="color"> <img src="/images/colors6.png"> </button>
+
+                      </li>
+                      <li class="glide__slide">
+                         <button class="color"> <img src="/images/colors7.png"> </button>
+
+                      </li>
+                  </ul>
+              </div>
+              <div class="glide__arrows" data-glide-el="controls">
+                  <button class="glide__arrow glide__arrow--right" data-glide-dir=">">
+                      <i class="fas fa-arrow-circle-right arrows"></i>
+                  </button>
+              </div>
+              <div class="glide__bullets" data-glide-el="controls[nav]">
+                  <button class=" glide__bullet" data-glide-dir="=0"></button>
+                  <button class=" glide__bullet" data-glide-dir="=3"></button>
+                  <button class=" glide__bullet" data-glide-dir="=6"></button>
+              </div>
+          </div>
+      </div>
+      <div class="color-suggestions-container">
+          <div class="color-suggestions">
+              <h4>To help you better choose a color, here are the colors used in each pattern</h4>
+              <div class="colors-designs">
+                  <figure>
+                      <img src="/images/colorsOnDesigns1.png">
+                      <figcaption>
+                          Friends
+                      </figcaption>
+                  </figure>
+                  <figure>
+                      <img src="/images/colorsOnDesigns2.png">
+                      <figcaption>
+                          The Big 
+                              Bang 
+                              Theory
+                      </figcaption>
+                  </figure>
+                  <figure>
+                      <img src="/images/colorsOnDesigns3.png">
+                      <figcaption>
+                          How I 
+                              Met Your 
+                              Mother
+                      </figcaption>
+                  </figure>
+                  <figure>
+                      <img src="/images/colorsOnDesigns4.png">
+                      <figcaption>
+                          That 70's
+                              Show
+                      </figcaption>
+                  </figure>
+                  <figure>
+                      <img src="/images/colorsOnDesigns5.png">
+                      <figcaption>
+                          Seinfeld
+                      </figcaption>
+                  </figure>
+              </div>
+          </div>
+      </div>
+  </section>
+ 
+  <section class="review-order">
+      <h2>Review Order</h2>
+      <div class="order">
+          <span>
+              <i class="fas fa-trash-alt"></i>
+          </span>
+          <div class="order-img">
+              <img src="/images/seinfeld.jpg">
+          </div>
+          <div class="order-details">
+              <p id="price">30$</p>
+              <p id="product-name">Seinfeld</p>
+              <p id="product-desc">Jerry Seinfeld's Apartment</p>
+              <p id="size">
+                  Size
+                  <span>M</span>
+              </p>
+              <p id="color">
+                  Color
+                  <span>Pink Punch</span>
+              </p>
+
+              <form autocomplete="off" id="cart-form" action="/cart/products" method="POST">
+                <input id="productId" type="text" hidden  value="" name="id">
+                <input id="productSize"  type="text" hidden value=""  name="size">
+                <input id="productColor"  type="text" hidden value=""  name="color">
+                <button type="submit" id="cart-button">Add to Cart</button>
+                </form>
+              
+          </div>
+      </div>
+  </section>
+<div class="review-container-bg"></div>
+</main>
+
+
+<%- include ("../partials/footer-products") %>
