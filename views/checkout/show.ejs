@@ -1,0 +1,211 @@
+<%- include ('../partials/header-products') %>
+
+<%	const subtotal = products.reduce((acc, product) => { %>
+    <%		return acc + product.productDetails.price * product.quantity; %>
+  <%	}, 0); %>
+  
+  <% const cartItems = products.reduce((total, product) => { %>
+  <%  return total += product.quantity; %>
+  <%}, 0) %>
+
+
+
+
+
+
+<div class="checkout-container">
+    <div class="checkout-header"><h1>Checkout</h1></div>
+    <div class="checkout-main">
+    <div class="layout-main">
+        <ol class="checkout-steps">
+            <li class="checkout-step checkout-step-shipping">
+                <div class="checkout-step-header">
+                    <div class="step-header-column step-header-figure">
+                        <div class="step-header-counter"></div>
+                        <h2 class="step-header-title">Shipping</h2>
+                    </div>
+                    <div class="step-header-column step-header-main ">
+                        <button class="step-header-edit-btn hidden-checkout">Edit</button>
+                    </div>
+                </div>
+                <div class="checkout-step-content">
+                    <div class="checkout-form shipping-form">
+                        <div class="legend-container">
+                           
+                        </div>
+                        <div class="form-container">
+                            <form class="checkout-form">
+                                <fieldset id="checkout-shipping-address" class="form-fieldset-container">
+                                    <legend class="form-legend">Shipping Address</legend>
+                                    <div class="form-body">
+                                        <div class="form-field-firstName form-field-container">
+                                            <div class="form-field">
+                                                <label class="form-label" for="firstNameInput">First Name</label>
+                                                <input class="form-input" id="firstNameInput" type="text">
+                                                <span class="error-msg hidden-checkout"></span>
+                                            </div>
+                                        </div>
+                                        <div class="form-field-lastName form-field-container">
+                                            <div class="form-field">
+                                                <label class="form-label" for="lastNameInput">Last Name</label>
+                                                <input  class="form-input" id="lastNameInput" type="text">
+                                                <span class="error-msg hidden-checkout"></span>
+                                            </div>
+                                        </div>
+                                        <div class="form-field-address form-field-container">
+                                            <div class="form-field">
+                                                <label class="form-label" for="addressInput">Address</label>
+                                                <input class="form-input" id="addressInput" type="text">
+                                                <span class="error-msg hidden-checkout"></span>
+                                            </div>
+                                        </div>
+                                        <div class="form-field-address-second-line form-field-container">
+                                            <div class="form-field">
+                                                <label class="form-label" for="addressSecondLineInput">Apartment/Building&lpar;Optional&rpar;</label>
+                                                <input class="form-input" id="addressSecondLineInput" type="text">
+                                                <span class="error-msg hidden-checkout"></span>
+                                            </div>
+                                        </div>
+                                     
+                                        <div class="form-field-city form-field-container">
+                                            <div class="form-field">
+                                                <label class="form-label" for="cityInput">City</label>
+                                                <input class="form-input"  id="cityInput" type="text">
+                                                <span class="error-msg hidden-checkout"></span>
+                                            </div>
+                                        </div>
+                                        <div class="form-field-country form-field-container">
+                                            <div class="form-field">
+                                                <label class="form-label" for="countryInput">Country</label>
+
+                                                <select class="shipping-estimator-checkout form-input" id="countryInput"></select>
+                                                <span class="error-msg hidden-checkout"></span>
+                                            </div>
+                                        </div>
+                                        <div class="form-field-state form-field-container">
+                                            <div class="form-field">
+                                                <label class="form-label" for="stateInput">State/Province&lpar;Optional&rpar;</label>
+                                                <input class="form-input" id="stateInput" type="text">
+                                                <span class="error-msg hidden-checkout"></span>
+                                            </div>
+                                        </div>
+                                        <div class="form-field-postal-code form-field-container">
+                                            <div class="form-field">
+                                                <label class="form-label" for="postalCodeInput">Postal Code</label>
+                                                <input class="form-input" id="postalCodeInput" type="text">
+                                                <span class="error-msg hidden-checkout"></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </fieldset>
+                                <div class="form-actions">
+                                    <button type="submit" class="checkout-shipping-continue">
+                                        Continue
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </li>
+            <li class="checkout-step checkout-step-payment">
+                <div class="checkout-step-header">
+                    <div class="step-header-column step-header-figure">
+                        <div class="step-header-counter"></div>
+                        <h2 class="step-header-title">Payment</h2>
+                    </div>
+                    <div class="step-header-column step-header-main "></div>
+                </div>
+                <div class="checkout-step-content hidden-checkout">
+                    <div class="checkout-form payment-form">
+                        <div class="legend-container">
+                            <legend class="form-legend">Payment Method</legend>
+                            <p class="payment-disc"> * Please note that at the moment we only accept payment through Paypal</p>
+                        </div>
+                        <div class="form-container">
+                            <div id="paypal-button-container">
+                              
+                                   
+                                        <input hidden class="shipping-val" >
+                                       
+                                       
+                                    
+                               
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </li>
+        </ol>
+        <div class="cart-mini hidden-checkout-desktop">
+            <figure><img alt="thumbnail of t-shirt in cart" src="data:image/png;base64, <%= product.productDetails.image %> "> </figure>
+            <div class="cart-mini-body">
+                <h3 class="cart-mini-items"><%= cartItems %><%= cartItems === 1 ? ' Item' : ' Items' %></h3>
+                <a class="edit-link">Show Details</a>
+            </div>
+            <div class="cart-mini-actions">
+                <h3 class="cart-mini-total grand-total-checkout">&#8364; <%= subtotal.toFixed(2) %></h3>
+            </div>
+
+        </div>
+    </div>
+
+    
+    <div class="cart-mini-overlay hidden-checkout-mobile">
+    <aside class="layout-cart ">
+        <article class="order-summary">
+          <button class="cart-mini-close hidden-checkout-desktop"> <i class="far fa-times-circle">
+        </i></button> 
+           <header class="cart-header">
+               <h3>Order Summary</h3>
+               <a  href="/cart">Edit Cart</a>
+           </header>
+           <section class="cart-section">
+               <h3>  <%= cartItems %><%= cartItems === 1 ? ' Item' : ' Items' %></h3>
+               <ul class="items-list">
+                <%   for (let product of products) { %>               
+                <li>
+                    <div class="item">
+                        <figure><img alt="thumbnail of t-shirt in cart" src="data:image/png;base64, <%= product.productDetails.image %> "> </figure>
+                        <div class="item-body">
+                            <h5>
+                                <%= product.quantity%> x <%= product.productDetails.title %>
+                            </h5>
+                            <ul class="cart-options">
+                                <li><span>Color</span> <span><%= product.color  %> </span></li>
+                                <li><span>Size</span> <span><%= product.size  %></span> </li>
+                            </ul>
+                        </div>
+                        <div class="item-price">&#8364; <%= product.quantity * product.productDetails.price  %> </div>
+                    </div>
+                </li>
+                <%    } %>
+               </ul>
+           </section>
+           <section class="cart-section">
+            <div class="cart-subtotal cart-pricing">
+                <span class="cart-pricing-label">Subtotal</span>
+                <span class="cart-pricing-value">&#8364; <%= subtotal.toFixed(2) %> </span>
+            </div>  
+            <div class="cart-shipping cart-pricing">
+                <span class="cart-pricing-label">Shipping</span>
+                <span class="cart-pricing-value display-shipping">-</span>
+            </div>
+           </section>
+           <section class="cart-section">
+               <div class="cart-total cart-pricing">
+                <span class="cart-pricing-label">Grant Total</span>
+                <span class="grand-total-checkout cart-pricing-value">&#8364; <%= subtotal.toFixed(2) %></span>
+                <input id="subtotal-checkout" hidden value=" <%= subtotal %>">
+               </div>
+           </section>
+           
+        </article>
+    </aside>
+
+</div>
+
+    </div>
+</div>
+
+<%- include ("../partials/footer-products") %>

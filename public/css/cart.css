@@ -10,7 +10,6 @@
 .cart h1 {
     font-weight: 400;
     font-size: 1.8rem;
-    margin: 4rem 0;
 }
 
 table {
@@ -21,6 +20,14 @@ table {
 .cart-header-item {
     font-weight: bold;
     font-size: 0.9rem;
+}
+
+.cart-content-header {
+    padding-top: 2rem;
+}
+
+.order-disclaimer {
+    padding-bottom: 2rem;
 }
 
 .cart-item {
@@ -99,7 +106,7 @@ td.cart-item-desc {
     width: 160px;
 }
 
-.cart-item-price {
+.cart-item-price .cart-item-value {
     color: red;
 }
 
@@ -110,6 +117,11 @@ td.cart-item-desc {
 .form-delete {
     display: flex;
     justify-content: flex-end;
+    align-items: center;
+}
+
+form[method=POST] {
+    margin: 0;
 }
 
 .form-delete button {
@@ -177,7 +189,7 @@ li.cart-total {
     text-align: center;
     flex-basis: 100%;
     font-size: 0.8rem;
-    padding-top: 1rem ;
+    padding-top: 1rem;
 }
 
 .hidden-cart {
@@ -192,20 +204,19 @@ li.cart-total {
     color: black;
 }
 
-
 .grand-total {
     font-size: 1.4rem;
     color: black;
 }
 
 .cart-total .shipping-info {
-   color: inherit;
+    color: inherit;
 }
 
 .cart-actions {
     text-align: right;
+    padding-bottom: 2rem;
 }
-
 
 .cart-actions button {
     background-color: black;
@@ -223,4 +234,143 @@ li.cart-total {
     background-color: white;
     border: 1px solid black;
     cursor: pointer;
+}
+
+.cart-item-label {
+    color: rgba(0, 0, 0, 0.55);
+    font-weight: normal;
+}
+
+.cart-hidden-desktop {
+    display: none;
+}
+
+.order-counter-disc {
+    font-size: 0.8rem
+}
+
+.order-counter {
+    background-color: #72b964;
+    border-radius: 50%;
+    padding: 0.3rem;
+    display: inline-block;
+    margin: 0 0.5rem;
+    color: white;
+    height: 1.2rem;
+    width: 1.2rem;
+    text-align: center;
+}
+
+.empty-cart-div {
+    padding: 1rem 0 4rem 0;
+}
+
+.empty-cart-div h3 {
+    font-weight: normal;
+}
+
+@media only screen and (max-width: 1296px) {
+    ul.cart-totals {
+        width: 60%;
+    }
+}
+
+@media only screen and (max-width: 1024px) {
+    .cart {
+        width: 100%;
+        padding: 0 2rem;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .cart-hidden-mobile {
+        display: none;
+    }
+    .cart-hidden-desktop {
+        display: block;
+    }
+    .cart-item-label {
+        margin: 0;
+        padding: 1rem 0;
+    }
+    td.cart-item.cart-item-desc {
+        width: 100%;
+        float: left;
+    }
+    #item-desc-container {
+        padding: 0;
+    }
+    td.cart-item-figure {
+        padding-right: 2rem;
+    }
+    .cart-item:not(:first-of-type) {
+        float: left;
+        width: 33%;
+        box-sizing: border-box;
+        text-align: left;
+        padding: 1rem;
+    }
+    .cart-item:nth-of-type(4), .cart-item:last-of-type {
+        text-align: left;
+    }
+    .form-delete {
+        justify-content: initial;
+    }
+    .form-increment form button:nth-of-type(1) {
+        padding-left: 0;
+    }
+    td.cart-item.cart-item-figure {
+        vertical-align: top;
+    }
+    td.cart-item.cart-item-figure img {
+        padding-top: 1rem;
+    }
+    table .cart-item:nth-of-type(2) {
+        padding-bottom: 1rem;
+    }
+    ul.cart-totals {
+        width: 80%;
+    }
+}
+
+@media only screen and (max-width: 604px) {
+    .cart-item:not(:first-of-type) {
+        width: 100%;
+        padding: 0;
+        display: flex;
+    }
+    .cart-item-label {
+        padding: 0;
+    }
+    table .cart-item:nth-of-type(2) {
+        padding: 1rem 0;
+    }
+    table .cart-item:nth-of-type(n+3) {
+        padding: 0.5rem 0;
+        justify-content: space-between;
+    }
+    table td.cart-item-total:nth-of-type(5) {
+        padding-bottom: 1rem;
+    }
+    table .cart-item:nth-of-type(n+3) .cart-item-label {
+        text-align: right;
+    }
+    .form-increment form {
+        text-align: right;
+    }
+    .form-increment form button:nth-of-type(2) {
+        padding-right: 0;
+    }
+    ul.cart-totals {
+        width: 100%;
+    }
+    .estimator-value select {
+        width: 60%;
+    }
+    .estimator-value {
+        text-align: right;
+    }
+    .cart-actions button {
+        width: 100%;
+    }
 }

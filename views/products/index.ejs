@@ -1,6 +1,6 @@
 <%- include ('../partials/header-products') %>
 
-<main>
+<main >
     
   <section class="hero hidden">
       <div class="layer"></div>
@@ -9,10 +9,11 @@
               <h1>
                   Your Favourite 
                   TV Sitcoms,
-                  in a T-shirt.
+                  in a Blueprint
+                Pattern.
               </h1>
-              <p>Hand drawn designs in a blueprint pattern.</p>
-             <button>Shop now</button>
+              <p>Unique Tees Printed in Utrecht, NL.</p>
+             <button id="cta">Shop now</button>
           </div>
           <span id="scroll-animation">
               <img src="/images/arrow.png" alt="">
@@ -25,19 +26,19 @@
   <section class="instructions">
       <div class="container-instructions">
           <div class="steps">
-              <div class="circle"></div>
+              <div tabindex=0 class="circle pattern-button"></div>
               <p>1. Choose your pattern</p>
           </div>
           <div class="steps">
-              <div class="circle"></div>
+              <div  tabindex=0 class="circle size-button"></div>
               <p>2. Choose your size</p>
           </div>
           <div class="steps">
-              <div class="circle"></div>
+              <div  tabindex=0 class="circle color-button"></div>
               <p>3. Choose your color</p>
           </div>
           <div class="steps">
-              <div class="circle"></div>
+              <div tabindex=0 class="circle cart-button"></div>
               <p>4. Review & Add to Cart</p>
           </div>
       </div>
@@ -45,13 +46,18 @@
   <section class="patterns-container">
       <div class="patterns">
           <h2> Choose a Pattern</h2>
+          <div id="myModal" class="modal">
+            <span aria-label="close" class="close">&times;</span>
+            <img class="modal-content" id="modal-image" alt="t-shirt for sale image">
+            <div id="caption"></div>
+          </div>
           <div class="designs">
           <% for (let product of products){ %> 
             <figure>
-                  <img src="data:image/png;base64, <%= product.image %> "/>
+                  <img tabindex=0 id="<%= product.id %>" class="enlarge-image" src="data:image/png;base64, <%= product.image %> " alt="t-shirt for sale image"/>
                   <figcaption><%= product.title %></figcaption>
                   <p id="choose-description"><%= product.description %></p>
-                  <p id="choose-price">€ <%= (product.price).toFixed(2) %></p>
+                  <p id="choose-price">&#8364; <%= (product.price).toFixed(2) %></p>
                   <input hidden value="<%= product.id %>">
                   <button class="design">Choose design</button>
               </figure>
@@ -87,7 +93,7 @@
           <div class="right-column">
               <figure id="sizes">
                   <figcaption>Click on photo to enlarge</figcaption>
-                  <img src="/images/sizes.png">
+                  <img tabindex=0  class="enlarge-image" src="/images/sizes.png" alt="t-shirt size chart">
               </figure>
           </div>
       </div>
@@ -97,54 +103,239 @@
           <h2>Choose a Color</h2>
           <div class="glide">
               <div class="glide__arrows" data-glide-el="controls">
-                  <button class="glide__arrow glide__arrow--left" data-glide-dir="<">
-                      <i class="fas fa-arrow-circle-left arrows"></i>
+                  <button  class="glide__arrow glide__arrow--left" data-glide-dir="<">
+                      <i  class="fas fa-arrow-circle-left arrows"></i>
                   </button>
               </div>
               <div class="glide__track" data-glide-el="track">
                   <ul class="glide__slides">
                       <li class="glide__slide">
                           <div>
-                            <button class="color"> <img src="/images/colors1.png">     </button>
-                            <label>Red</label>
+                            <button class="color"> <img alt="bright red shirt color" src="/images/colors1.png">     </button>
+                            <label>Bright Red</label>
                          
                           </div>
                       </li>
                       <li class="glide__slide">
-                          <button class="color"><img src="/images/colors2.png">  </button>
-
+                        <div>
+                          <button class="color"><img  alt="tangerine shirt color" src="/images/colors2.png">  </button>
+                          <label>Tangerine</label>
+                        </div>
                       </li>
                       <li class="glide__slide">
-                         <button class="color"> <img src="/images/colors3.png"> </button>
-
+                        <div>
+                         <button class="color"> <img alt="bright orange shirt color" src="/images/colors3.png"> </button>
+                         <label>Bright Orange</label>
+                        </div>
                       </li>
                       <li class="glide__slide">
-                         <button class="color"> <img src="/images/colors4.png"> </button>
-
+                        <div>
+                         <button class="color"> <img alt="sunset orange shirt color" src="/images/colors4.png"> </button>
+                        <label>Sunset Orange</label>
+                    </div>
                       </li>
                       <li class="glide__slide">
-                         <button class="color"> <img src="/images/colors5.png"> </button>
-
+                        <div>
+                         <button class="color"> <img alt="cotton pink shirt color" src="/images/colors5.png"> </button>
+                         <label>Cotton Pink</label>
+                        </div>
                       </li>
                       <li class="glide__slide">
-                         <button class="color"> <img src="/images/colors6.png"> </button>
-
+                        <div>
+                          <button class="color"> <img alt="red shirt color" src="/images/colors6.png"> </button>
+                        <label>Red</label>
+                    </div>
                       </li>
                       <li class="glide__slide">
-                         <button class="color"> <img src="/images/colors7.png"> </button>
-
+                        <div>
+                         <button class="color"> <img alt="pink punch shirt color" src="/images/colors7.png"> </button>
+                        <label>Pink Punch</label>
+                    </div>
                       </li>
+
+
+                      <li class="glide__slide">
+                        <div>
+                          <button class="color"> <img alt="purple led shirt color" src="/images/colors1.png">     </button>
+                          <label>Purple Led</label>
+                       
+                        </div>
+                    </li>
+                    <li class="glide__slide">
+                        <div>
+                        <button class="color"><img  alt="plum shirt color" src="/images/colors2.png">  </button>
+                        <label>Plum</label>
+                        </div>
+                    </li>
+                    <li class="glide__slide">
+                        <div>
+                       <button class="color"> <img alt="Lavender Dawn shirt color" src="/images/colors3.png"> </button>
+                       <label>Lavender Dawn</label>
+                        </div>
+                    </li>
+                    <li class="glide__slide">
+                        <div>
+                       <button class="color"> <img alt="Azur shirt color" src="/images/colors4.png"> </button>
+                      <label>Azur</label>
+                        </div>
+                    </li>
+                    <li class="glide__slide">
+                        <div>
+                       <button class="color"> <img alt="Royal Blue shirt color" src="/images/colors5.png"> </button>
+                       <label>Royal Blue</label>
+                        </div>
+                    </li>
+                    <li class="glide__slide">
+                        <div>
+                        <button class="color"> <img alt="Sky Blue shirt color" src="/images/colors6.png"> </button>
+                      <label>Sky Blue</label>
+                        </div>
+                    </li>
+                    <li class="glide__slide">
+                        <div>
+                       <button class="color"> <img alt="Baby Blue shirt color" src="/images/colors7.png"> </button>
+                      <label>Baby Blue</label>
+                        </div>
+                    </li>
+
+                    <li class="glide__slide">
+                        <div>
+                          <button class="color"> <img alt="Citadel Blue shirt color" src="/images/colors1.png">     </button>
+                          <label>Citadel Blue</label>
+                       
+                        </div>
+                    </li>
+                    <li class="glide__slide">
+                        <div>
+                        <button class="color"><img  alt="Stargazer shirt color" src="/images/colors2.png">  </button>
+                        <label>Stargazer</label>
+                        </div>
+                    </li>
+                    <li class="glide__slide">
+                        <div>
+                       <button class="color"> <img alt="Ocean Depth shirt color" src="/images/colors3.png"> </button>
+                       <label>Ocean Depth</label>
+                        </div>
+                    </li>
+                    <li class="glide__slide">
+                        <div>
+                       <button class="color"> <img alt="Caribbean Blue shirt color" src="/images/colors4.png"> </button>
+                      <label>Caribbean Blue</label>
+                        </div>
+                    </li>
+                    <li class="glide__slide">
+                        <div>
+                       <button class="color"> <img alt="Chameleon Blue shirt color" src="/images/colors5.png"> </button>
+                       <label>Chameleon Blue</label>
+                        </div>
+                    </li>
+                    <li class="glide__slide">
+                        <div>
+                        <button class="color"> <img alt="Fresh Green shirt color" src="/images/colors6.png"> </button>
+                      <label>Fresh Green</label>
+                        </div>
+                    </li>
+                    <li class="glide__slide">
+                        <div>
+                       <button class="color"> <img alt="Varsity Green shirt color" src="/images/colors7.png"> </button>
+                      <label>Varsity Green</label>
+                        </div>
+                    </li>
+
+
+                    <li class="glide__slide">
+                        <div>
+                          <button class="color"> <img alt="Scale Green shirt color" src="/images/colors1.png">     </button>
+                          <label>Scale Green</label>
+                       
+                        </div>
+                    </li>
+                    <li class="glide__slide">
+                        <div>
+                        <button class="color"><img  alt="Golden Yellow shirt color" src="/images/colors2.png">  </button>
+                        <label>Golden Yellow</label>
+                        </div>
+                    </li>
+                    <li class="glide__slide">
+                        <div>
+                       <button class="color"> <img alt="Spectra Yellow shirt color" src="/images/colors3.png"> </button>
+                       <label>Spectra Yellow</label>
+                        </div>
+                    </li>
+                    <li class="glide__slide">
+                        <div>
+                       <button class="color"> <img alt="Hay Yellow shirt color" src="/images/colors4.png"> </button>
+                      <label>Hay Yellow</label>
+                        </div>
+                    </li>
+                    <li class="glide__slide">
+                        <div>
+                       <button class="color"> <img alt="Moss Green shirt color" src="/images/colors5.png"> </button>
+                       <label>Moss Green</label>
+                        </div>
+                    </li>
+                    <li class="glide__slide">
+                        <div>
+                        <button class="color"> <img alt="British Khaki shirt color" src="/images/colors6.png"> </button>
+                      <label>British Khaki</label>
+                        </div>
+                    </li>
+                    <li class="glide__slide">
+                        <div>
+                       <button class="color"> <img alt="Khaki shirt color" src="/images/colors7.png"> </button>
+                      <label>Khaki</label>
+                        </div>
+                        </li>
+
+                        <li class="glide__slide">
+                            <div>
+                            <button class="color"><img  alt="Bottle Green shirt color" src="/images/colors2.png">  </button>
+                            <label>Bottle Green</label>
+                            </div>
+                        </li>
+                        <li class="glide__slide">
+                            <div>
+                           <button class="color"> <img alt="Roasted Orange shirt color" src="/images/colors3.png"> </button>
+                           <label>Roasted Orange</label>
+                            </div>
+                        </li>
+                        <li class="glide__slide">
+                            <div>
+                           <button class="color"> <img alt="Camel shirt color" src="/images/colors4.png"> </button>
+                          <label>Camel</label>
+                            </div>
+                        </li>
+                        <li class="glide__slide">
+                            <div>
+                           <button class="color"> <img alt="Desert Dust shirt color" src="/images/colors5.png"> </button>
+                           <label>Desert Dust</label>
+                            </div>
+                        </li>
+                        <li class="glide__slide">
+                            <div>
+                            <button class="color"> <img alt="Vintage White shirt color" src="/images/colors6.png"> </button>
+                          <label>Vintage White</label>
+                            </div>
+                        </li>
+                        <li class="glide__slide">
+                            <div>
+                           <button class="color"> <img alt="Opal shirt color" src="/images/colors7.png"> </button>
+                          <label>Opal</label>
+                            </div>
+                            </li>
+
+
                   </ul>
               </div>
               <div class="glide__arrows" data-glide-el="controls">
                   <button class="glide__arrow glide__arrow--right" data-glide-dir=">">
-                      <i class="fas fa-arrow-circle-right arrows"></i>
+                      <i  class="fas fa-arrow-circle-right arrows"></i>
                   </button>
               </div>
               <div class="glide__bullets" data-glide-el="controls[nav]">
-                  <button class=" glide__bullet" data-glide-dir="=0"></button>
-                  <button class=" glide__bullet" data-glide-dir="=3"></button>
-                  <button class=" glide__bullet" data-glide-dir="=6"></button>
+                  <button aria-label="browse colors" class=" glide__bullet" data-glide-dir="=0"></button>
+                  <button aria-label="browse colors" class=" glide__bullet" data-glide-dir="=13"></button>
+                  <button aria-label="browse colors" class=" glide__bullet" data-glide-dir="=27"></button>
               </div>
           </div>
       </div>
@@ -153,13 +344,15 @@
               <h4>To help you better choose a color, here are the colors used in each pattern</h4>
               <div class="colors-designs">
                   <figure>
-                      <img src="/images/colorsOnDesigns1.png">
+                      <img alt="colors used in Friends t-shirt" src="/images/QOTS-PALETTES-Friends.png">
                       <figcaption>
                           Friends
                       </figcaption>
                   </figure>
                   <figure>
-                      <img src="/images/colorsOnDesigns2.png">
+                      <img alt="colors used in The Big 
+                      Bang 
+                      Theory t-shirt" src="/images/QOTS-PALETTES-TBBT.png">
                       <figcaption>
                           The Big 
                               Bang 
@@ -167,7 +360,9 @@
                       </figcaption>
                   </figure>
                   <figure>
-                      <img src="/images/colorsOnDesigns3.png">
+                      <img alt="colors used in How I 
+                      Met Your 
+                      Mother t-shirt" src="/images/QOTS-PALETTES-HIMYM.png">
                       <figcaption>
                           How I 
                               Met Your 
@@ -175,14 +370,15 @@
                       </figcaption>
                   </figure>
                   <figure>
-                      <img src="/images/colorsOnDesigns4.png">
+                      <img alt="colors used in That 70's
+                      Show t-shirt" src="/images/QOTS-PALETTES-70s.png">
                       <figcaption>
                           That 70's
                               Show
                       </figcaption>
                   </figure>
                   <figure>
-                      <img src="/images/colorsOnDesigns5.png">
+                      <img alt="colors used in Seinfeld t-shirt" src="/images/QOTS-PALETTES-Seinfeld.png">
                       <figcaption>
                           Seinfeld
                       </figcaption>
@@ -196,13 +392,13 @@
       <h2>Review Order</h2>
       <div class="order">
           <span>
-              <i class="fas fa-trash-alt"></i>
+              <i  tabindex=0 class="fas fa-trash-alt"></i>
           </span>
           <div class="order-img">
-              <img src="/images/seinfeld.jpg">
+              <img src="/images/seinfeld.jpg" alt="t-shirt image for sample cart">
           </div>
           <div class="order-details">
-              <p id="price">30$</p>
+              <p id="price">&#8364; 30</p>
               <p id="product-name">Seinfeld</p>
               <p id="product-desc">Jerry Seinfeld's Apartment</p>
               <p id="size">
@@ -215,16 +411,16 @@
               </p>
 
               <form autocomplete="off" id="cart-form" action="/cart/products" method="POST">
-                <input id="productId" type="text" hidden  value="" name="id">
-                <input id="productSize"  type="text" hidden value=""  name="size">
-                <input id="productColor"  type="text" hidden value=""  name="color">
+                <input id="productId" type="text" hidden readonly="readonly" value="" name="id">
+                <input id="productSize"  type="text" hidden readonly="readonly" value=""  name="size">
+                <input id="productColor"  type="text" hidden  readonly="readonly" value=""  name="color">
                 <button type="submit" id="cart-button">Add to Cart</button>
                 </form>
               
           </div>
       </div>
   </section>
-<div class="review-container-bg"></div>
+
 </main>
 
 

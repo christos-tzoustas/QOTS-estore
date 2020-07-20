@@ -1,10 +1,13 @@
 const express = require('express');
 const cartsRepo = require('../repositories/carts');
 const productsRepo = require('../repositories/products');
+const ordersRepo = require('../repositories/orders');
+const products = require('../repositories/products');
 
 const router = express.Router();
 
 router.post('/cart/products', async (req, res) => {
+	
 	let cart;
 	if (!req.session.cartId) {
 		cart = await cartsRepo.create({ products: [] });
@@ -64,18 +67,21 @@ router.post('/cart/products/edit-quantity/', async (req, res) => {
 });
 
 router.get('/cart', async (req, res) => {
-	if (!req.session.cartId) {
-		res.redirect('/');
+	let cart = await cartsRepo.getOne(req.session.cartId);
+	
+	const counterId = 1;
+	const counter = await ordersRepo.getOne(counterId);
+	if (cart) {
+		for (product of cart.products) {
+			const productDetails = await productsRepo.getOne(product.id);
+			product.productDetails = productDetails;
+		}
+	} else {
+		cart = {};
+		cart.products = [];
 	}
 
-	const cart = await cartsRepo.getOne(req.session.cartId);
-
-	for (product of cart.products) {
-		const productDetails = await productsRepo.getOne(product.id);
-		product.productDetails = productDetails;
-	}
-
-	res.render('carts/show', { cart, products: cart.products });
+	res.render('carts/show', { cart, products: cart.products, page: 'cart', counter });
 });
 
 router.post('/cart/products/delete', async (req, res) => {

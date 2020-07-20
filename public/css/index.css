@@ -1,6 +1,7 @@
 body {
     font-family: 'Rubik', sans-serif;
     margin: 0;
+    overflow-anchor: none;
 }
 
 .hide-desktop {
@@ -12,8 +13,6 @@ body {
     opacity: 0;
     transition: visibility 2s, opacity 2s linear;
 }
-
-
 
 #success-msg {
     position: absolute;
@@ -67,6 +66,7 @@ nav #menu {
     line-height: 1.3rem;
     font-size: small;
     transform: translateX(15%);
+    vertical-align: middle;
 }
 
 .container-nav {
@@ -104,13 +104,10 @@ nav {
     display: flex;
     justify-content: center;
     height: 100%;
-    background-image: url(../images/jumbo.jpg);
+    background-image: url(../images/jumbo3.jpg);
     background-size: cover;
-    background-position: 100%;
-}
-
-.review-container-bg {
-    background-image: url(../images/jumbo.jpg);
+    background-position-y: 97%;
+    background-position-x: right;
 }
 
 .layer {
@@ -134,7 +131,6 @@ nav {
     letter-spacing: -0.2rem;
     margin-bottom: 2rem;
 }
-
 
 .headers p {
     margin-bottom: 2rem;
@@ -211,13 +207,22 @@ nav {
     border-radius: 50%;
     background-color: #03A164;
     position: relative;
+    transition: 0.2s;
+}
+
+.circle:hover{
+    width: 40px;
+    height: 40px;
+    background-color: #028553;
+    cursor: pointer;
+    border: 3px solid white;
 }
 
 .container-instructions:before {
     content: '';
     position: absolute;
-    left: 12%;
-    right: 12%;
+    left: 13%;
+    right: 13%;
     padding-bottom: 16px;
     border-bottom: 1px dashed white;
 }
@@ -227,6 +232,83 @@ nav {
     color: white;
     flex-direction: column;
     align-items: center;
+}
+
+.enlarge-image {
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.enlarge-image:hover {
+    opacity: 0.7;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 999999999;
+    padding-top: 100px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0, 0, 0);
+    background-color: rgba(0, 0, 0, 0.9);
+}
+
+.modal-content {
+    margin: auto;
+    display: block;
+    width: 80%;
+    max-width: 700px;
+}
+
+#caption {
+    margin: auto;
+    display: block;
+    width: 80%;
+    max-width: 700px;
+    text-align: center;
+    color: #ccc;
+    padding: 2rem 0;
+    height: 150px;
+}
+
+.modal-content, #caption {
+    animation-name: zoom;
+    animation-duration: 0.6s;
+}
+
+@keyframes zoom {
+    from {
+        transform: scale(0)
+    }
+    to {
+        transform: scale(1)
+    }
+}
+
+.close {
+    position: absolute;
+    top: 15px;
+    right: 35px;
+    color: #f1f1f1;
+    font-size: 40px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.close:hover, .close:focus {
+    color: #bbb;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+@media only screen and (max-width: 700px) {
+    .modal-content {
+        width: 100%;
+    }
 }
 
 .patterns-container {
@@ -266,7 +348,7 @@ nav {
     padding: 0.6rem 1.8rem;
     font-size: 1rem;
     border: none;
-    margin-top: 3rem;
+    margin-top: 2rem;
     text-transform: uppercase;
     transition: .2s;
 }
@@ -364,7 +446,7 @@ button.color {
 
 button.color {
     border: none;
-    background-color: none;
+    background-color: white;
 }
 
 .color-suggestions-container {
@@ -384,11 +466,17 @@ button.color {
     font-weight: 400;
     padding: 2.5rem 0;
     ;
+    margin: 0;
 }
 
 .colors-designs {
     display: flex;
     justify-content: center;
+}
+
+.colors-designs figure img:hover {
+    width: 13rem;
+    
 }
 
 .colors-designs figure {
@@ -397,12 +485,14 @@ button.color {
 
 .colors-designs figcaption {
     white-space: pre-line;
-    margin-top: 1rem;
+    vertical-align: top;
+    display: inline;
     font-size: 0.9rem;
 }
 
 .colors-designs figure img {
-    width: 80px;
+    width: 8rem;
+    transition: 0.2s;
 }
 
 .review-order {
@@ -463,11 +553,6 @@ button.color {
     margin-right: 1rem;
 }
 
-.order-details button {
-    margin-top: 2rem;
-    display: block;
-}
-
 .fa-trash-alt {
     position: absolute;
     right: 0;
@@ -507,9 +592,10 @@ footer {
     display: flex;
 }
 
-.info div>span {
+.info div>span, .info div>a {
     align-self: center;
     margin-right: 1.5rem;
+    color: white;
 }
 
 .social {
@@ -558,6 +644,24 @@ footer {
     justify-content: space-between;
 }
 
+@media only screen and (min-width: 2520px) {
+    div.order {
+        width: 35%;
+    }
+}
+
+@media only screen and (min-width: 1920px) {
+    .order {
+        width: 50%;
+    }
+}
+
+@media only screen and (min-width: 1820px) {
+    .designs {
+        justify-content: space-between;
+    }
+}
+
 @media only screen and (max-width: 1292px) {
     .order {
         width: 80%;
@@ -573,16 +677,14 @@ footer {
         font-size: 2.2rem;
     }
     .headers {
-       bottom: 22%;
+        bottom: 22%;
     }
-   
     .hide-desktop {
         display: block;
     }
     .hide-mobile {
         display: none;
     }
-
     .headers button {
         padding: 0.8rem 2.2rem;
     }
@@ -631,7 +733,7 @@ footer {
         font-size: 1.2rem;
     }
     .color-suggestions, .patterns, .container-nav, .container-instructions, .sizes, .colors, .review-order, .footer-container, .container-hero {
-        width: 100%
+        width: 100%;
     }
     nav {
         padding: 1.7rem 2rem;
@@ -668,7 +770,6 @@ footer {
     html {
         font-size: smaller;
     }
-    
     nav ul {
         width: 50%;
     }
@@ -698,7 +799,7 @@ footer {
         width: 210px;
     }
     .colors-designs figure img {
-        width: 65px;
+        width: 105px;
     }
     #success-msg {
         padding: 1rem 8rem;
@@ -715,11 +816,9 @@ footer {
     div.order img {
         width: 180px;
     }
-
     .headers button {
         width: 100%;
     }
-
     nav ul {
         width: 60%
     }
@@ -751,7 +850,7 @@ footer {
         margin-bottom: 0;
     }
     .colors-designs figure img {
-        width: 50px;
+        width: 80px;
     }
     .footer-container {
         flex-direction: column;
@@ -791,5 +890,11 @@ footer {
     }
     .social-buttons>a {
         margin: auto;
+    }
+    .order-details button {
+        margin-bottom: 1rem;
+    }
+    .colors-designs figure img {
+        width: 55px;
     }
 }

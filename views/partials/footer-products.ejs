@@ -1,3 +1,5 @@
+
+
 <footer>
     <div class="footer-container">
         <div class="info">
@@ -8,12 +10,15 @@
                 <p>
                     The purchase of your shirt benefits small 
                 business and sustainable clothing.
+                All shipping materials are 100% recycled.
                 </p>
             </div>
             <div>
-                <span>
-                    <i class="fab fa-instagram"></i>
-                </span>
+                <a href="https://www.instagram.com/katoenfabriek/">
+                    <span>
+                        <i class="fab fa-instagram"></i>
+                    </span>
+                </a>
                 <p>
                     For more information on the boutique 
                 where your shirt will be printed, follow 
@@ -21,9 +26,9 @@
                 </p>
             </div>
             <div>
-                <span>
-                    <i class="fab fa-instagram"></i>
-                </span>
+               <a href="https://www.instagram.com/wearestanleystella/"><span>
+                <i class="fab fa-instagram"></i>
+            </span></a> 
                 <p>
                     For more information on the sustainable 
                 shirts, follow @wearestanleystella on 
@@ -34,35 +39,42 @@
         <div class="social">
             <p>Follow us</p>
             <div class="social-buttons">
-                <a href="#" class="social-icons-cont">
+                <a href="https://www.instagram.com/quietontheshirt/" class="social-icons-cont">
                     <span>
                         <i class="social-icons fab fa-instagram"></i>
                     </span>
                 </a>
-                <a href="#" class="social-icons-cont">
+                <a href="https://www.facebook.com/quietontheshirt/" class="social-icons-cont">
                     <span>
                         <i class=" social-icons fab fa-facebook-f"></i>
                     </span>
                 </a>
-                <a href="#" class="social-icons-cont">
+                <a href="https://www.pinterest.com/quietontheshirt/" class="social-icons-cont">
                     <span>
                         <i class=" social-icons fab fa-pinterest"></i>
                     </span>
                 </a>
             </div>
             <p>
-                Website created by Christos Tzoustas 2020 ©
+                Website created by <a href="https://www.linkedin.com/in/christos-tzoustas-507b4b172/">Christos Tzoustas</a> 2020 ©
             </p>
         </div>
     </div>
 </footer>
-
-<script src="/scripts/glide.min.js"></script>
-<script src="/scripts/glide.js"></script>
 <script src="/scripts/helpers.js"></script>
-<script src="/scripts/createCart.js"></script>
-<script src="/scripts/main.js"></script>
-<script src="/scripts/cart.js"></script>
-<script src="/scripts/shipping.js"></script>
+<script src= <%= page === 'index' ?  "/scripts/glide.min.js": '' %> ></script>
+<script src=<%= page === 'index' ?  "/scripts/glide.js": '' %> ></script>
+<script src="/scripts/main.js" ></script>
+<script src=<%= page === 'index' ?  "/scripts/index.js": '' %> ></script>
+<script src=<%= page === 'cart' || page === 'checkout' ?  "/scripts/shippingEstimator.js": '' %> ></script>
+<script src=<%= page === 'cart' ? "/scripts/cart.js": '' %> ></script>
+<script src=<%= page === 'checkout' ?  "/scripts/validators.js": '' %> ></script>
+<script src=<%= page === 'checkout' ?  "/scripts/checkout.js": '' %> ></script>
+<script>
+    const paypalItems = <%- page=== 'checkout' ? helpers.passValue(paypalItems) : JSON.stringify('') %>
+</script>
+<script src=<%= page === 'checkout' ? 'https://www.paypal.com/sdk/js?client-id=AX8uf21uVi2YYHRfS0lown3aSWZGRs-zHtwiZYAFg1WiA2AzT3ey4D1QUmdT99qkCsP6zxt8BA9UCK3b&currency=EUR' : ''  %>></script>
+<script src=<%= page === 'checkout' ? '/scripts/paypal.js' : ''  %>></script>
+<script src="/scripts/empty.js"></script>
 </body>
 </html>

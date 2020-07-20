@@ -3,3 +3,5 @@ carts.json
 products.json
 users.json
 images
+.env
+orders.json

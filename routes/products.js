@@ -17,7 +17,7 @@ router.get('/', async (req, res) => {
 	}
 	
 	const products = await productsRepo.getAll();
-	res.render('products/index', { products, cart });
+	res.render('products/index', { products, cart, page: 'index'});
 });
 
 module.exports = router;
