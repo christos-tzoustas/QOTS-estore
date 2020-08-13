@@ -55,7 +55,7 @@ router.get('/checkout/payment-success/:id', async (req, res) => {
 			}
 
 			await cartsRepo.delete(req.session.cartId);
-			req.session.cartId = '';
+			req.session = null;
 
 			res.render('checkout/success', { products: cart.products, orderId, counter });
 		}

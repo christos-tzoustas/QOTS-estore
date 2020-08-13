@@ -42,12 +42,12 @@ const getDetails = () => {
 
 paypal
 	.Buttons({
-		// Set up the transaction
+
 		getDetails: getDetails,
 
 		createOrder: function(data, actions) {
 			return actions.order.create({
-				intent: 'CAPRE',
+				intent: 'CAPTURE',
 				purchase_units: [
 					{
 						amount: getDetails().amount,
@@ -61,7 +61,7 @@ paypal
 		onApprove: function(data, actions) {
 			return actions.order.capture().then(function(details) {
 				const responsePromise = fetch('/paypal-transaction-complete', {
-					method: 'post',
+					method: 'POST',
 					headers: {
 						'content-type': 'application/json; charset=utf-8'
 					},

@@ -2,7 +2,9 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Quiet on The Shirt </title>
+        <title>Quiet on the Shirt | Your Favourite TV Sitcoms, in a Blueprint Pattern </title>
+        <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon">
+        <link rel="icon" href="/images/favicon.ico" type="image/x-icon">
         <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;700&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.1/css/all.min.css">
         <link rel="stylesheet" href=  <%= page === 'index' ?  "/css/glide.core.min.css": '' %>>
@@ -17,23 +19,27 @@
       
     </head>
     <body>
-        <nav>
+        <header class="main-header">
+        <nav id="navbar">
             <div class="container-nav">
                 <a href="/">
-                    <img id="logo" src="/images/logo.png" alt="sweeping-petals-logo">
+                    <img id="logo2" src="/images/logo-short.png" alt="sweeping-petals-logo"><img id="logo1" src="/images/logo-text.png" alt="sweeping-petals-logo">
                 </a>
                 <a class="hide-desktop">
                     <i class="fas fa-bars menu" id="menu"></i>
                 </a>
-                <ul id="navbar" class="nav-links hide-mobile">
-                    <li id="exit" class="hide-desktop exit-btn">
+                <ul id="navbar-links" class="nav-links hide-mobile">
+                    <li id="exit-btn" class="hide-desktop">
                         <i class="fas fa-times"></i>
                     </li>
                     <li>
-                        <a href="/" id="home-link">Home</a>
+                        <a href="/" class="nav-link" id="home-link">Home
+                            <span class=<%= page === 'index' ? "navigation-border-active" : "navigation-border" %>></span>
+                        </a>
+                       
                     </li>
                     <li>
-                        <a href="/cart" id="cart-link">
+                        <a href="/cart" class="nav-link" id="cart-link">
                             Cart
                             <span>
                                 <i class="fas fa-shopping-cart"></i>
@@ -43,10 +49,12 @@
                                 <% }  %>
                                 </i>
                             </span>
+                            <span class=<%= page === 'cart' ? "navigation-border-active" : "navigation-border" %>></span>
                         </a>
-                        
+                       
                       
                     </li>
                 </ul>
             </div>
         </nav>
+    </header>
